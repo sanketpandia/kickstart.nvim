@@ -459,6 +459,11 @@ require("lazy").setup({
 			pcall(require("telescope").load_extension, "fzf")
 			pcall(require("telescope").load_extension, "ui-select")
 
+			-- Enable oil extension commands
+			vim.keymap.set("n", "<leader>e", function()
+				require("oil").toggle_float()
+			end, { desc = "Toggle Oil" })
+
 			-- See `:help telescope.builtin`
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
